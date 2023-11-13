@@ -4,11 +4,12 @@
         <div>
             <nuxt-link to="/pageB/a">跳转到a页</nuxt-link>
         </div>
+        <nuxt-child></nuxt-child>
     </div>
 </template>
 
 <script>
     export default{
-        middleware:'test',//局部中间件，引入中间件文件
+        // middleware:'test',//局部中间件，引入中间件文件
     }
 </script>
