@@ -15,7 +15,7 @@
         },
         head(){ //head方法就是动态配置 当前页面的head内容块
             return{
-                title: this.id,
+                title: this.id,//动态取值
                 meta:[
                     
                 ]

@@ -18,10 +18,14 @@ export default {
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
+    '~/static/css/reset.css',
+    'element-ui/lib/theme-chalk/index.css'
   ],
 
-  // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
+  // (呈现页面之前)Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
+    '~/plugins/test.js',
+    '~/plugins/element.js',
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
