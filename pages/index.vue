@@ -10,6 +10,7 @@
     <div>
       <nuxt-link to="/pageA">跳转到pageA首页</nuxt-link>
       <nuxt-link to="/pageB">跳转到pageB首页</nuxt-link>
+      <nuxt-link to="/news">跳转到新闻列表页</nuxt-link>
     
     </div>
   </div>
