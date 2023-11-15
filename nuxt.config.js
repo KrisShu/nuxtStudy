@@ -39,6 +39,16 @@ export default {
   modules: [
     '@nuxtjs/axios',
   ],
+  // axios 自己定义的  可以配置axios相关的操作
+  axios:{
+    proxy:true,//是否可以跨域
+    retry:{retries:3},//重发
+    // baseUrl:'' // 基本请求头
+  },
+  // proxy 自己定义的  可以配置跨域相关设置
+  proxy:{
+
+  },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
