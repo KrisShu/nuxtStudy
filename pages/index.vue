@@ -14,6 +14,17 @@
 			<nuxt-link to="/pageB">跳转到pageB首页</nuxt-link>
 			<nuxt-link to="/news">跳转到新闻列表页</nuxt-link>
 		</div>
+
+    <div>
+      <hr>
+      <h2>列表数据展示</h2>
+      <ul>
+        <li v-for="item in list" :key="item.img">
+          {{ item.title }}
+        </li>
+      </ul>
+      <albums></albums>
+    </div>
 	</div>
 </template>
 
@@ -28,11 +39,32 @@
       return true
     },
 
-    asyncData() {
-      //一般在此生命周期发送请求，请求后台数据
+    async asyncData({$axios}) {
+		// 仅限于页面组件的生命周期
+    //一般在此生命周期发送请求，请求后台数据，（组件页面就不能使用）
+    //不能使用this
       console.log('asyncData')
+
+      /**
+       * 使用$axios
+       * 1.1 yarn add @nuxtjs/axios
+       * 1.2 在 nuxt.config.js 中的modules 配置 '@nuxtjs/axios'
+       */
+      // console.log('$axios$axios',$axios)
+
+      let res  = await $axios.get('http://101.35.18.18:8777/m_jddc/api/more_album',{page:1});
+      // let res  = await $axios.get('http://testapi/xuexiluxian.cn/api/slider/getSliders');
+      // console.log('res',res.data.data.list)
+      let list = res.data.data.list
+      return {
+        list
+      }
     },
     fetch() {
+      /**
+       * fetch是有this
+       * 组件中请求数据  （具体 查看 albums组件）
+       */
       console.log('fetch')
     },
     beforeCreate() {
@@ -58,6 +90,11 @@
     },
     destroyed() {
       console.log('destroyed')
+    },
+    data(){
+      return{
+        list:[]
+      }
     },
     methods: {
       routerPush() {
